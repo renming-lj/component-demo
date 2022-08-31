@@ -2,7 +2,7 @@
  * @ Author: lj
  * @ Create Time: 2022-08-29 21:05:39
  * @ Modified by: 
- * @ Modified time: 2022-08-30 14:37:02
+ * @ Modified time: 2022-08-31 16:20:50
  * @ Description: 根组件
  -->
 
@@ -26,7 +26,6 @@
     <Barecharts v-else-if="isShow == 'bar'" />
     <DateSelection v-else-if="isShow == 'date'" />
     <kong v-else="isShow == 'kong'" />
-    <!-- <router-view></router-view> -->
   </div>
 </template>
 
