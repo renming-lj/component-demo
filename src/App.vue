@@ -2,7 +2,7 @@
  * @ Author: lj
  * @ Create Time: 2022-08-29 21:05:39
  * @ Modified by: 
- * @ Modified time: 2022-08-31 16:20:50
+ * @ Modified time: 2022-08-31 16:29:27
  * @ Description: 根组件
  -->
 
@@ -18,7 +18,6 @@
       <el-menu-item index="1">饼图</el-menu-item>
       <el-menu-item index="2">折线图</el-menu-item>
       <el-menu-item index="3">柱状图</el-menu-item>
-      <!-- <el-menu-item index="4">日期选择</el-menu-item> -->
       <el-menu-item index="99999">待定</el-menu-item>
     </el-menu>
     <Pieecharts v-if="isShow == 'pie'" />
@@ -33,7 +32,6 @@
 import Pieecharts from "@/views/pie-echarts.vue";
 import Lineecharts from "@/views/line-echarts.vue";
 import Barecharts from "@/views/bar-echarts.vue";
-// import DateSelection from "@/views/date-selection.vue";
 import kong from "@/views/404.vue";
 
 export default {
@@ -42,7 +40,6 @@ export default {
     Pieecharts,
     Lineecharts,
     Barecharts,
-    // DateSelection,
     kong,
   },
   data() {
