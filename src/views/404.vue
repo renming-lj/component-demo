@@ -23,7 +23,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(100vw - 260px - 40px - 40px);
   height: 600px;
 }
 </style>

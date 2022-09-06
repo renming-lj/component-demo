@@ -18,13 +18,14 @@
       <el-menu-item index="1">饼图</el-menu-item>
       <el-menu-item index="2">折线图</el-menu-item>
       <el-menu-item index="3">柱状图</el-menu-item>
+      <el-menu-item index="4">搜索区域</el-menu-item>
       <el-menu-item index="99999">待定</el-menu-item>
     </el-menu>
     <Pieecharts v-if="isShow == 'pie'" />
     <Lineecharts v-else-if="isShow == 'line'" />
     <Barecharts v-else-if="isShow == 'bar'" />
-    <DateSelection v-else-if="isShow == 'date'" />
-    <kong v-else="isShow == 'kong'" />
+    <FormPlus v-else-if="isShow == 'form'" />
+    <kong v-else-if="isShow == 'kong'" />
   </div>
 </template>
 
@@ -32,6 +33,7 @@
 import Pieecharts from "@/views/pie-echarts.vue";
 import Lineecharts from "@/views/line-echarts.vue";
 import Barecharts from "@/views/bar-echarts.vue";
+import FormPlus from "@/views/form-plus.vue";
 import kong from "@/views/404.vue";
 
 export default {
@@ -40,6 +42,7 @@ export default {
     Pieecharts,
     Lineecharts,
     Barecharts,
+    FormPlus,
     kong,
   },
   data() {
@@ -58,7 +61,7 @@ export default {
       } else if (key == 3) {
         this.isShow = "bar";
       } else if (key == 4) {
-        this.isShow = "date";
+        this.isShow = "form";
       } else {
         this.isShow = "kong";
       }
