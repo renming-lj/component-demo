@@ -15,7 +15,7 @@
              class="ruleForm"
              :label-width="labelWidth"
              :style="formStyle">
-      <template v-for="(item, index) in list">
+      <template v-for="(item, index) in lists">
         <template v-if="!item.type || item.type === 'input'">
           <el-form-item :key="index"
                         :label="item.label"
@@ -105,6 +105,7 @@ export default {
   data () {
     return {
       ruleForm: {},
+      lists:null
     };
   },
   computed: {
@@ -118,6 +119,7 @@ export default {
   watch: {
     list: {
       handler (list) {
+        this.lists = list
         this.handleList(list);
       },
       immediate: true,
@@ -139,7 +141,7 @@ export default {
     // 默认清空所填写数据
     resetForm () {
       this.$refs.ruleForm.resetFields();
-      this.handleList(this.list);
+      this.handleList(this.lists);
       this.$emit('resetForm');
     },
     handleList (list) {

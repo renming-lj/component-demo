@@ -19,12 +19,14 @@
       <el-menu-item index="2">折线图</el-menu-item>
       <el-menu-item index="3">柱状图</el-menu-item>
       <el-menu-item index="4">搜索区域</el-menu-item>
+      <el-menu-item index="5">纯数字输入框</el-menu-item>
       <el-menu-item index="99999">待定</el-menu-item>
     </el-menu>
     <Pieecharts v-if="isShow == 'pie'" />
     <Lineecharts v-else-if="isShow == 'line'" />
     <Barecharts v-else-if="isShow == 'bar'" />
     <FormPlus v-else-if="isShow == 'form'" />
+    <InputNumber v-else-if="isShow == 'number'" />
     <kong v-else-if="isShow == 'kong'" />
   </div>
 </template>
@@ -34,6 +36,7 @@ import Pieecharts from "@/views/pie-echarts.vue";
 import Lineecharts from "@/views/line-echarts.vue";
 import Barecharts from "@/views/bar-echarts.vue";
 import FormPlus from "@/views/form-plus.vue";
+import InputNumber from "@/views/input-number.vue";
 import kong from "@/views/404.vue";
 
 export default {
@@ -43,6 +46,7 @@ export default {
     Lineecharts,
     Barecharts,
     FormPlus,
+    InputNumber,
     kong,
   },
   data() {
@@ -62,6 +66,8 @@ export default {
         this.isShow = "bar";
       } else if (key == 4) {
         this.isShow = "form";
+      } else if (key == 5) {
+        this.isShow = "number";
       } else {
         this.isShow = "kong";
       }

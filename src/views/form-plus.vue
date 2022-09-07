@@ -7,9 +7,18 @@
  -->
 
 <template>
-  <FormPlus :list="formList"
-            @submitForm="searchPage"
-            @resetForm="resetForm" />
+  <div>
+    <FormPlus :list="formList"
+              @submitForm="searchPage"
+              @resetForm="resetForm" />
+    <div style="display: flex;justify-content: space-between;width: 74%;margin: 50px auto">
+<!--      搜索数据收集：-->
+      <div>编号：{{dataList.applyNumber}}</div>
+      <div>名称：{{dataList.name}}</div>
+      <div>开始时间：{{dataList.startTime}}</div>
+      <div>状态：{{dataList.status}}</div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -26,30 +35,29 @@ export default {
         { type: 'date-picker', label: '开始时间', model: 'startTime', valueFormat: 'yyyy-MM-dd HH:mm:ss', placeholder: '请选择开始时间' },
         { type: 'select', label: '状态', model: 'status', placeholder: '请选择状态', options: [{
             value: '选项1',
-            label: '黄金糕'
+            label: '启用'
           }, {
             value: '选项2',
-            label: '双皮奶'
-          }, {
-            value: '选项3',
-            label: '蚵仔煎'
-          }, {
-            value: '选项4',
-            label: '龙须面'
-          }, {
-            value: '选项5',
-            label: '北京烤鸭'
+            label: '禁用'
           }] },
       ],
+      dataList:{}
     };
   },
   methods: {
     // 可以取到子组件传递过来的数据
     searchPage (ruleForm) {
+      this.dataList = ruleForm
+      this.formList[3].options.forEach(item=>{
+        if(item.value == ruleForm.status){
+          this.dataList.status = item.label
+        }
+      })
       console.log(ruleForm, 'ruleForm');
     },
     resetForm () {
-
+      this.dataList = {}
+      console.log('重置')
     },
   },
 };
