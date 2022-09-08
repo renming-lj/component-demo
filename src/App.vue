@@ -20,6 +20,7 @@
       <el-menu-item index="3">柱状图</el-menu-item>
       <el-menu-item index="4">搜索区域</el-menu-item>
       <el-menu-item index="5">纯数字输入框</el-menu-item>
+      <el-menu-item index="6">分页组件</el-menu-item>
       <el-menu-item index="99999">待定</el-menu-item>
     </el-menu>
     <Pieecharts v-if="isShow == 'pie'" />
@@ -27,7 +28,8 @@
     <Barecharts v-else-if="isShow == 'bar'" />
     <FormPlus v-else-if="isShow == 'form'" />
     <InputNumber v-else-if="isShow == 'number'" />
-    <kong v-else-if="isShow == 'kong'" />
+    <Pagination v-else-if="isShow == 'paging'" />
+    <empty v-else-if="isShow == 'empty'" />
   </div>
 </template>
 
@@ -37,7 +39,8 @@ import Lineecharts from "@/views/line-echarts.vue";
 import Barecharts from "@/views/bar-echarts.vue";
 import FormPlus from "@/views/form-plus.vue";
 import InputNumber from "@/views/input-number.vue";
-import kong from "@/views/404.vue";
+import Pagination from "@/views/pagination.vue";
+import empty from "@/views/404.vue";
 
 export default {
   name: "App",
@@ -47,7 +50,8 @@ export default {
     Barecharts,
     FormPlus,
     InputNumber,
-    kong,
+    Pagination,
+    empty,
   },
   data() {
     return {
@@ -68,8 +72,10 @@ export default {
         this.isShow = "form";
       } else if (key == 5) {
         this.isShow = "number";
+      } else if (key == 6) {
+        this.isShow = "paging";
       } else {
-        this.isShow = "kong";
+        this.isShow = "empty";
       }
     },
   },
